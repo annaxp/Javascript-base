@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson2</title>
+    <script src="./sckipt.js"></script>
+</head>
+<body>
+<script>
+    // var goodsCount = 10;
+
+    // if (goodsCount > 0) {
+    //     console.log('Колличество товаров в корзине: ' + goodsCount);
+    // } else {
+    //     console.log('Корзина пуста');
+    // }
+    //Выриант тернарный оператор
+    // goodsCount > 0 ? console.log ('Колличество товаров в корзине: ' + goodsCount): console.log('Корзина пуста');
+
+    // var str = goodsCount > 0
+    //     ? 'Колличество товаров в корзине: ' + goodsCount
+    //     : 'Корзина пуста';
+    // console.log(str);
+
+//   const good = 'Яблоки';
+
+   // if (good === 'Бананы') {
+   //     console.log('Стоимость бананов 50р.');
+   // } else {
+   //     if (good === 'Манго') {
+   //         console.log('Стоимость манго 80р7');
+   //     } else {
+   //         if (good === 'Яблоки' || good === 'Груши') {
+   //             console.log('Стоимомть яблок и груш 40р.');
+   //         } else {
+   //             console.log('Неизвестный фрукт')
+   //         }
+   //     }
+   // }
+
+    // if (good === 'Бананы') {
+    //     console.log('Стоимость бананов 50р.');
+    // } else if (good === 'Манго') {
+    //     console.log('Стоимость манго 80р7');
+    // } else if (good === 'Яблоки' || good === 'Груши') {
+    //     console.log('Стоимомть яблок и груш 40р.');
+    // } else {
+    //     console.log('Неизвестный фрукт')
+    // }//
+
+    const good = 'Яблоки';
+    switch (good) {
+        case 'Бананы':
+            console.log('Стоимость бананов 50р.');
+            break;
+        case 'Манго':
+            console.log('Стоимость манго 80р.');
+            break;
+        case 'Яблоки':
+        case 'Груши':
+            console.log('Стоимость яблок и груш 40р.');
+            break;
+        default:
+            console.log('Неизвестный фрукт');
+    }
+
+
+</script>
+</body>
+</html>
