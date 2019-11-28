@@ -21,19 +21,135 @@
      * 2. Чему будет равен x ?
      */
 
-    var a = 2 ;
-    var x = 1 + (a *= 2 ); // x = 1 + (a = a * 2); x = 1 + (a = 2 * 2); x = 1 + 4 = 5
-    console.log(x) // 5
+    // var a = 2 ;
+    // var x = 1 + (a *= 2 ); // x = 1 + (a = a * 2); x = 1 + (a = 2 * 2); x = 1 + 4 = 5
+    // console.log(x); // 5
 
     /**
      * 3. Объявить две целочисленные переменные — a и b и задать им произвольные начальные
      значения. Затем написать скрипт, который работает по следующему принципу:
-     o если a и b положительные, вывести их разность;
-     o если а и b отрицательные, вывести их произведение
-     o если а и b разных знаков, вывести их сумму;
+     - если a и b положительные, вывести их разность;
+     - если а и b отрицательные, вывести их произведение
+     - если а и b разных знаков, вывести их сумму;
      Ноль можно считать положительным числом.
      */
 
+    // let a = 2;
+    // let b = -5;
+    // if (a >= 0 && b >= 0) {
+    //     console.log( a - b); // если a = 0; b = 27 // разность -27
+    // } else if
+    //     (a < 0 && b < 0){
+    //     console.log(a * b); // если a = -2; b = -5 // произведение +10
+    // } else {
+    //     console.log(a + b);// если a = 2; b = -5 // сумма -3
+    // }
+
+    /**
+     * 4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch
+     организовать вывод чисел от a до 15.
+     */
+
+    // let a = 12;
+    // arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    //
+    //     switch (a) {
+    //         case 1:
+    //             console.log(arr);
+    //             break;
+    //         case 15:
+    //             console.log(a);
+    //             break;
+    //         default:
+    //             console.log(arr.slice(a-1));
+    //     }
+
+    /**
+     * 5. Реализовать четыре основные арифметические операции в виде функций с двумя
+     параметрами. Обязательно использовать оператор return
+     */
+
+    function sum(a, b) {
+        return a + b;
+    }
+
+    function subtract(a, b) {
+        return a - b;
+    }
+
+    function multiply(a, b) {
+        return a * b;
+    }
+
+    function divide(a, b) {
+        return a / b;
+    }
+
+    const mySum = sum(5, 7);
+    console.log(mySum);
+
+    const mySubtract = subtract(5, 7);
+    console.log(mySubtract);
+
+    const myMultiply = multiply(5, 7);
+    console.log(myMultiply);
+
+    const myDivide = divide(5, 7);
+    console.log(myDivide);
+
+    /**
+     * 6. Реализовать функцию с тремя параметрами: f unction mathOperation(arg1, arg2, operation),
+     где arg1, arg2 — значения аргументов, operation — строка с названием операции. В
+     зависимости от переданного значения выполнить одну из арифметических операций
+     (использовать функции из пункта 5) и вернуть полученное значение (применить switch ).
+     */
+
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case '+':
+                return sum(arg1, arg2);
+                break;
+            case '-':
+                return subtract(arg1, arg2);
+                break;
+            case '*':
+                return multiply(arg1, arg2);
+                break;
+            case '/':
+                return divide(arg1, arg2);
+                break;
+        }
+    }
+
+    console.log(mathOperation(7, 2, '+'));
+    console.log(mathOperation(7, 2, '-'));
+    console.log(mathOperation(7, 2, '*'));
+    console.log(mathOperation(7, 2, '/'));
+
+    /**
+     * 7. Сравнить null и 0 . Объяснить результат
+     */
+    let x = null; // ToNumber(null) // +0
+    let y = 0;  // number
+    console.log(x == y); // +0 == 0 // false
+    console.log(x === y); //+0 === 0 // false
+    console.log(x >= y); // +0 >= 0 // true
+    console.log(x > y); // +0 > 0 // false !!! не понимаю
+    console.log(x <= y); // +0 <= 0 // true !!!
+    console.log(x < y); //false
+    console.log(x != y); //true
+
+    /**
+     * 8. С помощью рекурсии организовать функцию возведения числа в степень. Формат: f unction
+     power(val, pow), где val — заданное число, pow –— степень.
+     */
+
+     function power(val, pow) {
+         if (pow === 0) return 1;
+         else
+         return power (val, pow - 1) * val;
+     }
+     console.log(power(10, 3))
 
 </script>
 </body>
