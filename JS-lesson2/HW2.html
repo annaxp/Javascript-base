@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW Lesson 2</title>
+</head>
+<body>
+<script>
+    /**
+     * 1. Почему код дает именно такие результаты?
+     */
+    // var a = 1 , b = 1 , c, d;
+    // c = ++a; alert(c); // 2 оператор ++a сначала добавляет 1 потом возвращает значение соответственно с=1+1
+    // d = b++; alert(d); // 1 оператор b++ наоборот вначале возвращает значение, а уже потом добавляет единицу d=1 (запишет b=1+1)
+    // c = ( 2 + ++a); alert(c); // 5 в переменной а уже лежит значение 2(строка 13). Соответственно ++а добавит к ней еще 1 и прибавит к двум, c=2+1+2
+    // d = ( 2 + b++); alert(d); // 4 в переменной b лежит значение 2(строка 14). b++ вернет зачение 2 и и прибавится к 2, получается d=2+2 (но запишет b=2+1)
+    // alert(a); // 3 в строке 13 и в строке 15 оператор ++а добавил к ней единицу a=1+1+1
+    // alert(b); // 3 в строке 14 и в строке 16 оператор b++ хоть и вывел меньшее значение, но в переменную записал значение на 1 больше. b=1+1+1
+
+    /**
+     * 2. Чему будет равен x ?
+     */
+
+    // var a = 2 ;
+    // var x = 1 + (a *= 2 ); // x = 1 + (a = a * 2); x = 1 + (a = 2 * 2); x = 1 + 4 = 5
+    // console.log(x); // 5
+
+    /**
+     * 3. Объявить две целочисленные переменные — a и b и задать им произвольные начальные
+     значения. Затем написать скрипт, который работает по следующему принципу:
+     - если a и b положительные, вывести их разность;
+     - если а и b отрицательные, вывести их произведение
+     - если а и b разных знаков, вывести их сумму;
+     Ноль можно считать положительным числом.
+     */
+
+    // let a = 2;
+    // let b = -5;
+    // if (a >= 0 && b >= 0) {
+    //     console.log( a - b); // если a = 0; b = 27 // разность -27
+    // } else if
+    //     (a < 0 && b < 0){
+    //     console.log(a * b); // если a = -2; b = -5 // произведение +10
+    // } else {
+    //     console.log(a + b);// если a = 2; b = -5 // сумма -3
+    // }
+
+    /**
+     * 4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch
+     организовать вывод чисел от a до 15.
+     */
+
+    // let a = 12;
+    // arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    //
+    //     switch (a) {
+    //         case 1:
+    //             console.log(arr);
+    //             break;
+    //         case 15:
+    //             console.log(a);
+    //             break;
+    //         default:
+    //             console.log(arr.slice(a-1));
+    //     }
+
+    /**
+     * 5. Реализовать четыре основные арифметические операции в виде функций с двумя
+     параметрами. Обязательно использовать оператор return
+     */
+
+    function sum(a, b) {
+        return a + b;
+    }
+
+    function subtract(a, b) {
+        return a - b;
+    }
+
+    function multiply(a, b) {
+        return a * b;
+    }
+
+    function divide(a, b) {
+        return a / b;
+    }
+
+    const mySum = sum(5, 7);
+    console.log(mySum);
+
+    const mySubtract = subtract(5, 7);
+    console.log(mySubtract);
+
+    const myMultiply = multiply(5, 7);
+    console.log(myMultiply);
+
+    const myDivide = divide(5, 7);
+    console.log(myDivide);
+
+    /**
+     * 6. Реализовать функцию с тремя параметрами: f unction mathOperation(arg1, arg2, operation),
+     где arg1, arg2 — значения аргументов, operation — строка с названием операции. В
+     зависимости от переданного значения выполнить одну из арифметических операций
+     (использовать функции из пункта 5) и вернуть полученное значение (применить switch ).
+     */
+
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case '+':
+                return sum(arg1, arg2);
+            case '-':
+                return subtract(arg1, arg2);
+            case '*':
+                return multiply(arg1, arg2);
+            case '/':
+                return divide(arg1, arg2);
+            default:
+                return false;
+
+        }
+    }
+
+    console.log(mathOperation(7, 2, '+'));
+    console.log(mathOperation(7, 2, '-'));
+    console.log(mathOperation(7, 2, '*'));
+    console.log(mathOperation(7, 2, '/'));
+
+    /**
+     * 7. Сравнить null и 0 . Объяснить результат
+     */
+    // let x = null; // ToNumber(null) // +0
+    // let y = 0;  // number
+    // console.log(x === y); //+0 === 0 // false
+    // console.log(x >= y); // +0 >= 0 // true
+    // console.log(x > y); // +0 > 0 // false !!! не понимаю
+    // console.log(x <= y); // +0 <= 0 // true !!!
+    // console.log(x < y); //false
+    // console.log(x !== y); //true
+
+    /**
+     * 8. С помощью рекурсии организовать функцию возведения числа в степень. Формат: f unction
+     power(val, pow), где val — заданное число, pow –— степень.
+     */
+
+    function power(val, pow) {
+        if (pow === 0) return 1;
+        else
+            return power (val, pow - 1) * val;
+    }
+    console.log(power(10, 3));
+
+
+    /**
+     * Рекурсия d обратку
+     */
+
+    function recursion(x) {
+        if (x <= 0 ||!Number.isInteger(x))return 'Задайте целое число больше 0';
+        if (x === 1 ) return '1';
+
+        return recursion(x - 1) + ' ' + x;
+        // return `${recursion(x-1)} ${x}`;
+    }
+    console.log(recursion(10));
+
+
+</script>
+</body>
+</html>
