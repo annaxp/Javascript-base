@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW Lesson 4 task3</title>
+</head>
+<body>
+<script>
+    /**
+     * Подумать над глобальными сущностями. К примеру, сущность «Продукт» в
+     интернет-магазине актуальна не только для корзины, но и для каталога. Стремиться нужно к
+     тому, чтобы объект «Продукт» имел единую структуру для различных модулей сайта, но в
+     разных местах давал возможность вызывать разные методы.
+     */
+
+        // изначально создаем каталог товаров / дисконты/  товары на складе/ прописать методы для анализа данных каталога
+    const product = {
+        goods: [
+            {
+                id_product: 101,
+                product_name: "cap",
+                id_brand: 21,
+                price: 100,
+                quantity: 0,
+                discount: 5,
+                goodsStore: 100,
+                img: "img/cart/cap101.jpg"
+            },
+            {
+                id_product: 102,
+                product_name: "pants",
+                id_brand: 22,
+                price: 50,
+                quantity: 0,
+                discount: 2,
+                goodsStore: 300,
+                img: "img/cart/pants102.jpg"
+            },
+            {
+                id_product: 103,
+                product_name: "sock",
+                id_brand: 25,
+                price: 20,
+                quantity: 0,
+                discount: 10,
+                goodsStore: 500,
+                img: "img/cart/sock103.jpg"
+            }
+        ],
+            countProductPrice() {
+                return this.goods.reduce((totalPrice, cartItem) => totalPrice += cartItem.price * cartItem.goodsStore, 0);
+            }
+         // reserveGoods() {},
+    };
+    console.log(product.countProductPrice());
+    console.log(product);
+
+    // потом создаем пустую корзину, товары в которую попадают из каталога товаров для этого нужны методы
+    // очистка корзины/ добавление товаров/ удаление товара /меняем колличество и тд
+    const Basket = {
+        goods: [
+            { id_product: 100,
+                product_name: "",
+                id_brand: 10,
+                price: 0,
+                quantity: 0,
+                discount: 0,
+                goodsStore: 0,
+                img: "#"},
+        ],
+        clearBasket(){},
+        addGoodsBasket(){},
+        removeGoodBasket(){},
+        changeQuantity (){},
+        countQuantityAll (){},
+
+        countBasketPrice() {
+            return this.goods.reduce((totalPrice, cartItem) => totalPrice += cartItem.price * cartItem.quantity, 0);
+        }
+
+    };
+
+    console.log(Basket.countBasketPrice());
+    console.log(Basket);
+</script>
+
+
+
+
+
+
+</body>
+</html>
