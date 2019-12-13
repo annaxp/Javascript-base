@@ -66,6 +66,19 @@
     }
 
 
+    //Вариант Арта пирамида в одной переменной
+    let pyramid = '';
+    for (let i = 0; i < 20; i++) {
+        pyramid += 'x';
+        for (let j = 0; j < i; j++) {
+            pyramid += 'xx';
+        }
+        pyramid +='\n';
+    }
+
+    console.log(pyramid);
+
+
 </script>
 
 </body>
