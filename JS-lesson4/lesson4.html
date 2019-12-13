@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 4 - Objects</title>
+</head>
+<body>
+<script>
+    // const  obj = {};
+    // const obj = new Object();
+    // console.log(obj);
+
+    /**
+     *  Свойства
+    */
+    // function getPropName(prop) {
+    //     return `testing new prop ${prop}`; // генерация наименования свойства
+    // }
+    //
+    // const myCar = {
+    //     manufacture: 'BMV',
+    //     color: 'blue',
+    //     'property with space': 1,
+    //     [getPropName('test')]: 456,
+    //
+    // };
+    //
+    // const prop = 'color';
+    // console.log(myCar);
+    // console.log(myCar.manufacture);
+    // console.log(myCar['property with space']);
+    // console.log(myCar['manufacture']);
+    // console.log(myCar[prop]); //  console.log(myCar['color']);
+    // console.log(myCar['testing new prop test']);
+
+    /**
+     * Методы
+     */
+
+    const someVar = 'test5';
+
+    const myCar = {
+        manufacture: 'BMV',
+        color: 'blue',
+        'property with space': 1,
+        engine: {
+            power: 300,
+            code: 'B5834B',
+        },
+        possibleColors: ['black', 'red', 'brown', 'white'],
+        beep () {
+            console.log('Машина сигналит');
+        },
+        test (){
+            console.log(someVar)  //замыкание
+        }
+    };
+
+    console.log(myCar);
+    console.log(myCar.possibleColors[3]);
+    console.log(myCar.engine.power);// вызов свойства внутри свойства
+    myCar.beep(); // вызов свойства
+    myCar.test();
+
+
+    // перечень ключей
+    console.log(Object.keys(myCar));
+    console.log(Object.getOwnPropertyNames(myCar));
+
+    // пробежка по объектам
+
+    for (const prop in myCar) {
+        console.log(`свойство: ${prop}, значение: ${myCar[prop]}}`);
+    }
+
+    function inc(a) {
+        ++a;
+    }
+    let a = 1;
+    console.log(a); // 1
+    inc(a);
+    console.log(a); // 1
+
+</script>
+</body>
+</html>
