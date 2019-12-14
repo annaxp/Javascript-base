@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson 4 - Objects</title>
+    <script src="game.js"></script>
 </head>
 <body>
 <script>
@@ -40,49 +41,49 @@
      * Методы
      */
 
-    const someVar = 'test5';
+    // const someVar = 'test5';
+    //
+    // const myCar = {
+    //     manufacture: 'BMV',
+    //     color: 'blue',
+    //     'property with space': 1,
+    //     engine: {
+    //         power: 300,
+    //         code: 'B5834B',
+    //     },
+    //     possibleColors: ['black', 'red', 'brown', 'white'],
+    //     beep () {
+    //         console.log('Машина сигналит');
+    //     },
+    //     test (){
+    //         console.log(someVar)  //замыкание
+    //     }
+    // };
+    //
+    // console.log(myCar);
+    // console.log(myCar.possibleColors[3]);
+    // console.log(myCar.engine.power);// вызов свойства внутри свойства
+    // myCar.beep(); // вызов свойства
+    // myCar.test();
 
-    const myCar = {
-        manufacture: 'BMV',
-        color: 'blue',
-        'property with space': 1,
-        engine: {
-            power: 300,
-            code: 'B5834B',
-        },
-        possibleColors: ['black', 'red', 'brown', 'white'],
-        beep () {
-            console.log('Машина сигналит');
-        },
-        test (){
-            console.log(someVar)  //замыкание
-        }
-    };
 
-    console.log(myCar);
-    console.log(myCar.possibleColors[3]);
-    console.log(myCar.engine.power);// вызов свойства внутри свойства
-    myCar.beep(); // вызов свойства
-    myCar.test();
-
-
-    // перечень ключей
-    console.log(Object.keys(myCar));
-    console.log(Object.getOwnPropertyNames(myCar));
-
-    // пробежка по объектам
-
-    for (const prop in myCar) {
-        console.log(`свойство: ${prop}, значение: ${myCar[prop]}}`);
-    }
-
-    function inc(a) {
-        ++a;
-    }
-    let a = 1;
-    console.log(a); // 1
-    inc(a);
-    console.log(a); // 1
+    // // перечень ключей
+    // console.log(Object.keys(myCar));
+    // console.log(Object.getOwnPropertyNames(myCar));
+    //
+    // // пробежка по объектам
+    //
+    // for (const prop in myCar) {
+    //     console.log(`свойство: ${prop}, значение: ${myCar[prop]}}`);
+    // }
+    //
+    // function inc(a) {
+    //     ++a;
+    // }
+    // let a = 1;
+    // console.log(a); // 1
+    // inc(a);
+    // console.log(a); // 1
 
 </script>
 </body>
