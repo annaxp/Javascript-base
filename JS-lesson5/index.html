@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 5</title>
+</head>
+<body>
+<div id="id-test">
+    <h1>Тестовая страница</h1>
+    <div class="test-class">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, quis, soluta! Alias, aliquam asperiores consectetur culpa error et facere fugiat ipsum molestias nemo, perspiciatis quae quam sit sunt suscipit voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem distinctio et fugit non numquam optio quod, reiciendis vel vero. Doloremque illo ipsa nihil nostrum pariatur sint temporibus. Commodi, provident?</p>
+    </div>
+    <div class="test-class">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, quis, soluta! Alias, aliquam asperiores consectetur culpa error et facere fugiat ipsum molestias nemo, perspiciatis quae quam sit sunt suscipit voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem distinctio et fugit non numquam optio quod, reiciendis vel vero. Doloremque illo ipsa nihil nostrum pariatur sint temporibus. Commodi, provident?</p>
+    </div>
+</div>
+<a href="#" onclick="sayHello()">link</a> /// САМЫЙ ТОПОРНЫЙ СПОСОБ суровый ОЛД СКУУЛ
+<a href="#" onclick="alert('123')">link</a>
+<script>
+    "use strict";
+    // console.log(document);
+    // console.dir(document);
+    // console.dir(window.document);
+
+
+    // поиск элементов
+
+    // console.log(document.getElementById('id-test'));
+    // console.log(document.getElementsByClassName('test-class'));
+    // console.log([...document.getElementsByClassName('test-class')]); //hak!!!
+    // console.log(document.getElementsByTagName('p'));
+
+    // современные методы выбора элемента
+
+    // console.log(document.querySelector('.test-class:last-child'));
+    // console.log(document.querySelectorAll('p'));
+
+    // перебор
+    //
+    // const pTags = document.querySelectorAll('p');
+    // console.log(pTags);
+    //
+    // for (let i = 0; i < pTags.length; i++) {
+    //     console.log(pTags[i]);
+    // }
+
+    // изменения
+
+    // const h1Tag = document.querySelector('h1');
+    // console.log(h1Tag.textContent);
+    // console.log(h1Tag.innerText);
+    // console.log(h1Tag.innerHTML);
+    // console.log(h1Tag.insertAdjacentHTML('afterbegin', '<div id="two">new method: afterbegin</div>'));
+    // console.log(h1Tag.insertAdjacentHTML('beforeend', '<div id="two">new method: beforeend</div>'));
+    // h1Tag.innerHTML = h1Tag.innerHTML + '<b style="color: red">!!!</b>';
+
+    // создание
+
+
+    // const myDiv = document.createElement('div');
+    // myDiv.textContent = 'Hello!';
+    // document.querySelector('body').appendChild(myDiv);
+    // document.querySelector('body').insertBefore(что вставляем, перед кем вставляем); /// ??
+
+    // const h1Tag = document.querySelector('h1');
+    // const h1Tag = document.querySelector('h1').cloneNode(true);
+    // const parentElement = document.getElementById('id-test');
+    // const refElement = document.querySelector('.test-class:Last-child');
+    // parentElement.insertBefore(h1Tag, refElement);
+
+    // стили
+
+    // console.log(h1Tag.style);
+    // h1Tag.style.color = 'red';
+    // h1Tag.style.display = 'none'; // для скрытия по кнопке создаем сласс элемент модификатор
+    // console.log(getComputedStyle(h1Tag));
+
+    // Удаление
+
+    // const h1Tag = document.querySelector('h1');
+    // h1Tag.remove() // удалил все h1
+    // h1Tag.parentElement.removeChild(h1Tag); // старый метод не использовать но знать
+
+    // console.log(h1Tag.parentElement);
+    // console.log(h1Tag.parentElement.children);
+    // console.log(h1Tag.parentElement.children[1].querySelector('p'));
+
+    // события
+
+    function sayHello() {
+    alert('Hello');
+    }
+    //
+    // // плохой способ использовать оnclick
+    const h1Tag = document.querySelector('h1');
+    // h1Tag.onclick = function () {
+    //     alert('Hi Hi!!!');
+    // };
+    // h1Tag.onclick = function () {
+    //     alert('By By!!');
+    // };
+    //
+    // h1Tag.onclick = null;
+    //
+    // добавим обработчик событий
+
+    h1Tag.addEventListener('click', function () {
+        console.log('Hello!')
+    });
+
+    h1Tag.addEventListener('click', sayHello); // функция без скобок
+
+    h1Tag.removeEventListener('click', sayHello); //  удаление обработчика событий
+
+    // события документа
+
+    window.addEventListener('load', function () {
+        alert('123 after load window');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        alert('123 after DOM Content Loaded');
+        }
+    );
+
+    window.addEventListener('beforeunload', function () {
+        alert('advertise beforeunload')
+    });
+
+
+
+</script>
+</body>
+</html>
