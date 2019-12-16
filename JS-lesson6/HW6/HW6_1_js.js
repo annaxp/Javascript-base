@@ -5,6 +5,10 @@
  */
 const catalog = {
   catalogBlock: null,
+  addCartButton: null,
+
+  newGood: [], // новые товары из каталога
+
   list: [
     {
       id_product: 123,
@@ -23,17 +27,40 @@ const catalog = {
       product_name: 'Клавиатура',
       price: 1500,
       quantity: 1,
+    },
+    {
+      id_product: 345,
+      product_name: 'Коврик',
+      price: 300,
+      quantity: 1,
     }
   ],
 
   /**
    * Инициальзация каталога.
    * @param catalogBlockClass - класс блока каталога
+   * // addCartButton -   класс кнопки добавки в корзину
    */
-  init(catalogBlockClass) {
+  init(catalogBlockClass, addCartButton) {
     this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
+    this.addCartButton = document.querySelector(`.${addCartButton}`);
+    // this.addEventHandlers();
     this.render();
   },
+
+  // обработчик события положить в корзину
+
+  // addEventHandlers() {
+  //   this.addCartButton.addEventListener('click', this.addCart.bind(this));
+  // },
+
+  // метод добавления в корзину
+
+  // addCart() {
+  //   передать выбранные товары в корзину
+  //   this.render();
+  //   // console.log(this.newGood);
+  // },
 
   /**
    * Рендер каталога
@@ -73,6 +100,7 @@ const catalog = {
     return `<div>
                 <h3>${item.product_name}</h3>
                 <p>${item.price} руб.</p>
+                <button class="add-cart">Добавить в корзину</button>
             </div>`;
   },
 
@@ -85,10 +113,10 @@ const catalog = {
   },
 };
 
-/**
- *  Объект корзины
- */
-const cart = {
+  /**
+  *  Объект корзины
+  */
+  const cart = {
   cartBlock: null,
   clrCartButton: null,
   goods: [
@@ -181,5 +209,5 @@ const cart = {
 /**
  * Подключение каталога и корзины
  */
-catalog.init('catalog');
+catalog.init('catalog', 'add-cart');
 cart.init('cart', 'clr-cart');
