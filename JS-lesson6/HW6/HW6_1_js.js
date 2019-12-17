@@ -5,9 +5,10 @@
  */
 const catalog = {
   catalogBlock: null,
-  addCartButton: null,
 
-  newGood: [], // новые товары из каталога
+  // addCartButton: null, ///?
+
+  cart: {},
 
   list: [
     {
@@ -41,26 +42,26 @@ const catalog = {
    * @param catalogBlockClass - класс блока каталога
    * // addCartButton -   класс кнопки добавки в корзину
    */
-  init(catalogBlockClass, addCartButton) {
+  init(catalogBlockClass, cart) {
     this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
-    this.addCartButton = document.querySelector(`.${addCartButton}`);
-    // this.addEventHandlers();
+    this.cart = cart;
+    this.addEventHandlers();
     this.render();
   },
 
   // обработчик события положить в корзину
 
-  // addEventHandlers() {
-  //   this.addCartButton.addEventListener('click', this.addCart.bind(this));
-  // },
+  addEventHandlers() {
+    this.catalogBlock.addEventListener('click', event => this.addCart(event));
+  },
 
-  // метод добавления в корзину
+  // метод добавления в корзину     передать выбранные товары в корзину
 
-  // addCart() {
-  //   передать выбранные товары в корзину
-  //   this.render();
-  //   // console.log(this.newGood);
-  // },
+  addCart(event) {
+   if (!event.target.classList.contains('product__add-to-cart')) return;
+   const id_product = +event.target.dataset.id_product;
+   this.cart.addCart(id_product);
+  },
 
   /**
    * Рендер каталога
@@ -100,7 +101,7 @@ const catalog = {
     return `<div>
                 <h3>${item.product_name}</h3>
                 <p>${item.price} руб.</p>
-                <button class="add-cart">Добавить в корзину</button>
+                <button class="product__add-to-cart" data-id_produck="${item.id_product}">Добавить в корзину</button>
             </div>`;
   },
 
@@ -133,9 +134,11 @@ const catalog = {
    * @param cartBlockClass - класс блока корзины
    * @param clrCartButton - класс кнопки очистки корзины
    */
-  init(cartBlockClass, clrCartButton) {
+  init(cartBlockClass, clrCartButton, catalogList) {
     this.cartBlock = document.querySelector(`.${cartBlockClass}`);
     this.clrCartButton = document.querySelector(`.${clrCartButton}`);
+    this.CatalogList = catalogList;
+
     this.addEventHandlers();
     this.render();
   },
@@ -166,7 +169,26 @@ const catalog = {
     }
   },
 
-  /**
+    findProduct (id_product) {
+      return this.CatalogList.find(product => product.id_product === id_product);
+    },
+
+
+    // Добавление товаров
+
+    addCart(id_product) {
+    const product = this.findProduct(id_product);
+
+    if (product) {
+      this.goods.push(product);
+      this.render()
+    } else {
+      alert('Ошибка добавления!')
+    }
+
+    },
+
+    /**
    * Получение количества товаров в корзине
    * @returns {number}
    */
@@ -209,5 +231,5 @@ const catalog = {
 /**
  * Подключение каталога и корзины
  */
-catalog.init('catalog', 'add-cart');
-cart.init('cart', 'clr-cart');
+catalog.init('catalog', cart);
+cart.init('cart', 'clr-cart', catalog.list);
