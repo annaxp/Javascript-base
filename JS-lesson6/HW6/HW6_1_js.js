@@ -12,24 +12,28 @@ const catalog = {
             product_name: 'Ноутбук',
             price: 45600,
             quantity: 1,
+            images: ["./img/min/123_1.jpg", "./img/min/123_1.jpg", "./img/min/123_1.jpg",],
         },
         {
             id_product: 456,
             product_name: 'Мышка',
             price: 1000,
             quantity: 1,
+            images: ["./img/min/123_2.jpg", "./img/min/123_2.jpg", "./img/min/123_2.jpg",],
         },
         {
             id_product: 245,
             product_name: 'Клавиатура',
             price: 1500,
             quantity: 1,
+            images: ["./img/min/123_3.jpg", "./img/min/123_3.jpg", "./img/min/123_3.jpg",],
         },
         {
             id_product: 345,
             product_name: 'Коврик',
             price: 300,
             quantity: 1,
+            images: ["./img/min/123_1.jpg", "./img/min/123_2.jpg", "./img/min/123_3.jpg",],
         }
     ],
 
@@ -40,10 +44,10 @@ const catalog = {
      * @param cart
      */
     init(catalogBlockClass, cart) {
-      this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
-      this.cart = cart;
-      this.render();
-      this.addEventHandlers();
+        this.catalogBlock = document.querySelector(`.${catalogBlockClass}`);
+        this.cart = cart;
+        this.render();
+        this.addEventHandlers();
     },
 
 
@@ -99,6 +103,11 @@ const catalog = {
         return `<div class="product">
                 <h3>${item.product_name}</h3>
                 <p>${item.price} руб.</p>
+                  <div class="imgContainer" style="display: flex">
+                    <img class="images__min" src="${item.images[0]}" alt="${item.product_name}">
+                    <img class="images__min" src="${item.images[1]}" alt="${item.product_name}">
+                    <img class="images__min" src="${item.images[2]}" alt="${item.product_name}">
+                </div><br>
                 <button class="product__add-to-cart" data-id_product="${item.id_product}">Добавить в корзину</button>
             </div>`;
     },
@@ -125,6 +134,7 @@ const cart = {
             product_name: 'Ноутбук',
             price: 45600,
             quantity: 2,
+            images: ["./img/min/123_1.jpg", "./img/min/123_2.jpg", "./img/min/123_3.jpg",],
         },
     ],
 
@@ -135,9 +145,9 @@ const cart = {
      * @param catalogList
      */
     init(cartBlockClass, clrCartButton, catalogList) {
-      this.cartBlock = document.querySelector(`.${cartBlockClass}`);
-      this.clrCartButton = document.querySelector(`.${clrCartButton}`);
-      this.catalogList = catalogList;
+        this.cartBlock = document.querySelector(`.${cartBlockClass}`);
+        this.clrCartButton = document.querySelector(`.${clrCartButton}`);
+        this.catalogList = catalogList;
 
         this.addEventHandlers();
         this.render();
@@ -170,7 +180,7 @@ const cart = {
     },
 
     findProduct(id_product) {
-      return this.catalogList.find(product => product.id_product === id_product);
+        return this.catalogList.find(product => product.id_product === id_product);
     },
 
 
@@ -224,6 +234,11 @@ const cart = {
                 <h3>${item.product_name}</h3>
                 <p>${item.price} руб.</p>
                 <p>${item.quantity} шт.</p>
+                <div class="imgContainer" style="display: flex">
+                    <img class="images__min" src="${item.images[0]}" alt="${item.product_name}">
+                    <img class="images__min" src="${item.images[1]}" alt="${item.product_name}">
+                    <img class="images__min" src="${item.images[2]}" alt="${item.product_name}">
+                </div><br>
             </div>`;
     },
 };
