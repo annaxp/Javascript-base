@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW 5_2</title>
+</head>
+<body>
+<div class="cart"></div>
+<script>
+    /**
+     * 2. Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре.
+     * Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+     a. Пустая корзина должна выводить строку «Корзина пуста»;
+     b. Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+     */
+// 'use strict';
+
+    const basket = {
+        basketBlock: null,
+
+        goods: [
+            {
+                id_product: 101,
+                product_name: "cap",
+                price: 100,
+                quantity: 1
+            },
+            {
+                id_product: 102,
+                product_name: "pants",
+                price: 50,
+                quantity: 1
+            },
+            {
+                id_product: 103,
+                product_name: "sock",
+                price: 70,
+                quantity: 5
+            }, {
+                id_product: 104,
+                product_name: "skirt",
+                price: 90,
+                quantity: 2
+            }, {
+                id_product: 105,
+                product_name: "shoes",
+                price: 150,
+                quantity: 1
+            },
+        ],
+        // Инициализация
+
+        init(basketBlockClass){
+            this.basketBlock = document.querySelector(`.${basketBlockClass}`);
+            this.basketBlock.textContent = 'hi';
+            this.render();
+        },
+
+        //рендер
+        render () {
+            if (this.getBasketLength() > 0) {
+                this.basketBlock.textContent = '';
+                this.basketBlock.textContent = this.renderBasket();
+            } else {
+                this.basketBlock.textContent = '';
+                this.basketBlock.textContent = this.renderEmptyBasket();
+            }
+        },
+
+        // получение стоимости корзины
+        countBasketPrice() {
+            return this.goods.reduce((totalPrice, cartItem) => totalPrice += cartItem.price * cartItem.quantity, 0);
+        },
+        // сколько товаров к рорзине
+        getBasketLength() {
+            return this.goods.length;
+        },
+        // рендер полной корзины
+
+        renderBasket() {
+            return `В корзине: ${this.getBasketLength()}  товаров на сумму ${this.countBasketPrice()} рублей`
+        },
+        // рендер пустой корзины
+        renderEmptyBasket() {
+            return `Корзина пуста.`
+        },
+
+    };
+
+    console.log(basket.countBasketPrice());
+    console.log(basket);
+
+    //запуск корзины
+    basket.init('cart');
+</script>
+</body>
+</html>
