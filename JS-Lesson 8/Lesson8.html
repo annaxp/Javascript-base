@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 8</title>
+</head>
+<body>
+<script>
+    // Hosting
+    /**
+     *  Function declaration
+     */
+
+    // myFunc();
+    //
+    // function myFunc() {
+    //     console.log('Hello!');
+    // }
+    //
+    // myFunc();
+    //
+    // console.log(a); // undefined
+    // var a = 5 ;
+    // console.log(a); // 5
+    // console.log(window.a); //
+
+    // console.log(c); // error
+
+    // let c = 5;
+    // console.log(c); // 5
+    // console.log(window.c);// undefined
+    //
+
+    /**
+     * function expression распространено в реакте
+     */
+        // myFunc(); // undefined как
+        // let myFunc = function () { // анонимная функция
+        //     console.log('Hello')
+        // };
+        // myFunc();
+        // Дописать код урока
+
+
+        // function someFunc() {
+        //    // "use strict";  //  undefined
+        //     console.log(this) // без строгого режима объект window
+        // }
+        // someFunc(); //undefined
+        // window.someFunc(); //window
+        //
+        // const myNewFunc = someFunc;
+        // var myNewFunc = someFunc;
+        // myNewFunc(); // undefined
+
+        // const game = {
+        //         run() {
+        //             console.log(this);
+        //         }
+        //     };
+
+        // game.run();
+        //
+        // const myRun = game.run;
+        //
+        // myRun(); // undefined
+    //
+    // const user = {
+    //         name: 'Artem',
+    //         sayName() {
+    //             console.log(this);
+    //         }
+    //     };
+
+    // setTimeout(user.sayName, 1000);// window
+    // setTimeout(() => user.sayName(), 1000);// user
+
+// Передача контекста
+    const newSayName = (a, b) => {
+            console.log(this);
+            console.log(a, b);
+        };
+
+    function sayName(a, b) {
+        console.log(this);
+        console.log(a, b);
+    }
+
+    // newSayName(1, 2);
+    // sayName(1, 2);
+const user = {
+        name: 'Petr',
+    };
+const myFunc = sayName.bind(user);
+
+</script>
+</body>
+</html>
