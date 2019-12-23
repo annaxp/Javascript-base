@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- *  Объект каталога товаров
+ *  Объект каталога товаров Lesson 7
  */
 const catalog = {
     catalogBlock: null,
